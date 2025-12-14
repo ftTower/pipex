@@ -5,82 +5,82 @@
 
 ## Description
 
-Ce projet implémente un programme appelé `pipex` qui simule le comportement de la commande shell `< file1 cmd1 | cmd2 > file2`. Il prend quatre arguments : `file1`, `cmd1`, `cmd2`, et `file2`, où `file1` et `file2` sont des noms de fichiers, et `cmd1` et `cmd2` sont des commandes shell avec leurs paramètres respectifs.
+This project implements a program called `pipex` that simulates the behavior of the shell command `< file1 cmd1 | cmd2 > file2`. It takes four arguments: `file1`, `cmd1`, `cmd2`, and `file2`, where `file1` and `file2` are file names, and `cmd1` and `cmd2` are shell commands with their respective parameters.
 
-Le programme doit être exécuté comme suit :
+The program must be executed as follows:
 ```
 ./pipex file1 cmd1 cmd2 file2
 ```
 
-## Exemples
+## Examples
 
-### Exemple 1
+### Example 1
 ```
 $> ./pipex infile "ls -l" "wc -l" outfile
 ```
-Devrait être identique à `< infile ls -l | wc -l > outfile`.
+Should be identical to `< infile ls -l | wc -l > outfile`.
 
-### Exemple 2
+### Example 2
 ```
 $> ./pipex infile "grep a1" "wc -w" outfile
 ```
-Devrait être identique à `< infile grep a1 | wc -w > outfile`.
+Should be identical to `< infile grep a1 | wc -w > outfile`.
 
 ![alt tag](https://github.com/ftTower/ft_pipex/blob/main/basic.png)
 
-## Fonctionnalités
+## Features
 
-- Gestion des entrées/sorties avec les fichiers et les tubes.
-- Exécution des commandes shell spécifiées avec leurs paramètres.
-- Gestion des erreurs avec du bon sens pour éviter les interruptions inattendues.
-- Pas de fuites de mémoire.
-- Gestion de plusieurs pipes pour des points supplémentaires.
+- Input/output handling with files and pipes.
+- Execution of specified shell commands with their parameters.
+- Sensible error handling to avoid unexpected interruptions.
+- No memory leaks.
+- Multiple pipe handling for bonus points.
 
-## Fonctions Principales
+## Main Functions
 
 ### `pipex`
 
-La fonction principale qui dirige le flux du programme en vérifiant les erreurs, en déterminant s'il faut exécuter la commande de sauvetage et en appelant les fonctions appropriées.
+The main function that directs the program flow by checking for errors, determining whether to execute the rescue command, and calling the appropriate functions.
 
 ### `choose_proccess`
 
-Choisit le processus enfant ou parent à exécuter en fonction du PID retourné par la fonction `fork`.
+Chooses the child or parent process to execute based on the PID returned by the `fork` function.
 
 ### `forker`
 
-Crée un nouveau processus enfant pour exécuter une commande.
+Creates a new child process to execute a command.
 
 ### `bonus`
 
-Implémente la fonctionnalité bonus de gestion de plusieurs pipes.
+Implements the bonus functionality for handling multiple pipes.
 
 ## Bonus
 
-- Gestion de plusieurs pipes.
-- Validation du projet à 115%.
+- Multiple pipe handling.
+- Project validated at 115%.
 
 ## Compilation
 
-Le projet est compilé à l'aide d'un Makefile qui compile les fichiers sources sans relink.
+The project is compiled using a Makefile that compiles the source files without relinking.
 
-Le projet peut être compilé en utilisant les règles du Makefile suivantes :
+The project can be compiled using the following Makefile rules:
 
-### Règles de Compilation
+### Compilation Rules
 
-- `make` ou `make all`: Compile le projet principal.
-- `make bonus`: Compile le projet avec les fonctionnalités bonus.
-- `make clean`: Supprime les fichiers objets et les dossiers de compilation.
-- `make fclean`: Supprime les fichiers objets, les dossiers de compilation et l'exécutable.
-- `make re`: Effectue une remise à zéro complète du projet en supprimant tous les fichiers générés et en recompilant tout depuis le début.
+- `make` or `make all`: Compiles the main project.
+- `make bonus`: Compiles the project with bonus features.
+- `make clean`: Removes object files and compilation folders.
+- `make fclean`: Removes object files, compilation folders, and the executable.
+- `make re`: Performs a complete reset of the project by removing all generated files and recompiling everything from scratch.
 
-## Prérequis
+## Requirements
 
-- Gestion des erreurs sans interruption inattendue.
-- Pas de fuites de mémoire.
+- Error handling without unexpected interruptions.
+- No memory leaks.
 
-## Remarques
+## Notes
 
-Le programme a été validé avec succès à 115%. ✅
+The program was successfully validated at 115%. ✅
 
 ---
 
